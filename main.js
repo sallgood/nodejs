@@ -3,7 +3,7 @@ var https = require('https');
 var app = require('express')(), bodyParser = require('body-parser');
 var auth = require('basic-auth')
 
-var cp   = require('./couchpotato.js');
+var pegleg   = require('./pegleg.js');
 var util = require('./util.js');
 
 var fileName = "./secrets.json"
@@ -52,7 +52,7 @@ app.post('/', function (req, res) {
 
 //incoming POST from PegLeg at API.AI
 app.post('/pegleg', function (req, res) {
-    cp.handler(req, res, sendStuff); 
+    pegleg.handler(req, res, sendStuff); 
 });
 
 function sendStuff (res, data) {
